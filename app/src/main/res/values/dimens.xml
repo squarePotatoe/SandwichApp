@@ -4,4 +4,6 @@
     <dimen name="order_button_width">250dp</dimen>
     <dimen name="item_margin_top">16dp</dimen>
     <dimen name="layout_padding">16dp</dimen>
+    <dimen name="bottom_margin_6">6dp</dimen>
+    <dimen name="marginEnd">24dp</dimen>
 </resources>

@@ -15,6 +15,11 @@
     <string name="large_chips">Large chips %s</string>
     <string name="chips">Small chips %s</string>
     <string name="start_your_order">Start your order</string>
+    <string name="extras">Extras</string>
+    <string name="cancel">Cancel</string>
+    <string name="order">Order</string>
+    <string name="chose_your_sandwich">Chose your Sandwich</string>
+    <string name="customize">Customize</string>
 
 
 </resources>

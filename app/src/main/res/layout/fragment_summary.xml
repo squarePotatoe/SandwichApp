@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/summary_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/layout_padding"
             tools:context=".SummaryFragment">
@@ -40,7 +40,7 @@
                 android:id="@+id/sandwich_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="@dimen/marginEnd"
                 android:text="@{viewModel.sandwich.formattedPrice}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintBottom_toBottomOf="@id/sandwich"
@@ -61,7 +61,7 @@
                 android:id="@+id/extras_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Extras"
+                android:text="@string/extras"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintTop_toBottomOf="@id/sandwich_divider" />
 
@@ -69,22 +69,11 @@
                 android:id="@+id/extra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
+                android:layout_marginBottom="@dimen/bottom_margin_6"
                 android:text='@{viewModel.showAllExtras()}'
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                app:layout_constraintTop_toBottomOf="@id/extras_header"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="Coffee $1.99" />
-
-            <TextView
-                android:id="@+id/test"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text='@{viewModel.side.name}'
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintTop_toBottomOf="@id/extras_header"
-                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="Coffee $1.99" />
 
             <View
@@ -118,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/item_margin_top"
                     android:onClick="@{() -> summaryFragment.cancelOrder()}"
-                    android:text="Cancel"
+                    android:text="@string/cancel"
                     app:layout_constraintEnd_toStartOf="@id/order_summary"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/total" />
@@ -130,7 +119,7 @@
                     android:layout_marginStart="@dimen/item_margin_top"
                     android:layout_marginTop="@dimen/item_margin_top"
                     android:onClick="@{() -> summaryFragment.sendOrder()}"
-                    android:text="Order"
+                    android:text="@string/order"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/cancel_order"
                     app:layout_constraintTop_toBottomOf="@id/total" />

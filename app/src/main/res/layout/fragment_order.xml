@@ -21,7 +21,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/layout_padding"
             tools:context=".OrderFragment">
@@ -30,7 +30,7 @@
                 android:id="@+id/sandwich"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chose your Sandwich"
+                android:text="@string/chose_your_sandwich"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,7 +108,7 @@
                     android:id="@+id/customize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Customize"
+                    android:text="@string/customize"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
                 <CheckBox
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_margin_top"
                 android:onClick="@{() -> orderFragment.cancelOrder()}"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 app:layout_constraintEnd_toStartOf="@id/order_summary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/total" />
@@ -173,7 +173,7 @@
                 android:layout_marginStart="@dimen/item_margin_top"
                 android:layout_marginTop="@dimen/item_margin_top"
                 android:onClick="@{() -> orderFragment.goToNextScreen()}"
-                android:text="Order"
+                android:text="@string/order"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cancel_order"
                 app:layout_constraintTop_toBottomOf="@id/total" />
