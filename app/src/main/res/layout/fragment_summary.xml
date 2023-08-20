@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mjdoescode.sandwichapp.model.OrderViewModel" />
+
+        <variable
+            name="summaryFragment"
+            type="com.mjdoescode.sandwichapp.SummaryFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/summary_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding"
+            tools:context=".SummaryFragment">
+
+            <TextView
+                android:id="@+id/sandwich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sandwich.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Beef sandwich" />
+
+            <TextView
+                android:id="@+id/sandwich_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:text="@{viewModel.sandwich.formattedPrice}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintBottom_toBottomOf="@id/sandwich"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/sandwich"
+                tools:text="$5.99" />
+
+            <View
+                android:id="@+id/sandwich_divider"
+                style="@style/Widget.Sandwich.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/item_margin_top"
+                android:layout_marginBottom="@dimen/item_margin_top"
+                app:layout_constraintTop_toBottomOf="@id/sandwich_price" />
+
+            <TextView
+                android:id="@+id/extras_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Extras"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintTop_toBottomOf="@id/sandwich_divider" />
+
+            <TextView
+                android:id="@+id/extra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text='@{viewModel.showAllExtras()}'
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintTop_toBottomOf="@id/extras_header"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Coffee $1.99" />
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text='@{viewModel.side.name}'
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintTop_toBottomOf="@id/extras_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Coffee $1.99" />
+
+            <View
+                android:id="@+id/extras_divider"
+                style="@style/Widget.Sandwich.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/item_margin_top"
+                android:layout_marginBottom="@dimen/item_margin_top"
+                app:layout_constraintTop_toBottomOf="@id/extra" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/extras_divider">
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@{@string/total(viewModel.subtotal)}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Total" />
+
+                <Button
+                    android:id="@+id/cancel_order"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_margin_top"
+                    android:onClick="@{() -> summaryFragment.cancelOrder()}"
+                    android:text="Cancel"
+                    app:layout_constraintEnd_toStartOf="@id/order_summary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total" />
+
+                <Button
+                    android:id="@+id/order_summary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_margin_top"
+                    android:layout_marginTop="@dimen/item_margin_top"
+                    android:onClick="@{() -> summaryFragment.sendOrder()}"
+                    android:text="Order"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cancel_order"
+                    app:layout_constraintTop_toBottomOf="@id/total" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

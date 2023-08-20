@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_size">300dp</dimen>
+    <dimen name="order_button_width">250dp</dimen>
+    <dimen name="item_margin_top">16dp</dimen>
+    <dimen name="layout_padding">16dp</dimen>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SandwichApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beef_sandwich">Beef sandwich %s</string>
+    <string name="fish_sandwich">Fish sandwich %s</string>
+    <string name="chicken_sandwich">Chicken sandwich %s</string>
+    <string name="choose_you_sandwich">Choose you sandwich</string>
+    <string name="add_extras">Add extras:</string>
+    <string name="lettuce">Extra Lettuce %s</string>
+    <string name="tomato">Extra Tomato %s</string>
+    <string name="pickles">Extra Pickles %s</string>
+    <string name="total">Total %s</string>
+    <string name="coffee_tea_refill_cup_d">Coffee/Tea refill cup %s</string>
+    <string name="large_chips">Large chips %s</string>
+    <string name="chips">Small chips %s</string>
+    <string name="start_your_order">Start your order</string>
+
+
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mjdoescode.sandwichapp.model.OrderViewModel" />
+
+        <variable
+            name="orderFragment"
+            type="com.mjdoescode.sandwichapp.OrderFragment" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding"
+            tools:context=".OrderFragment">
+
+            <TextView
+                android:id="@+id/sandwich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chose your Sandwich"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/extras_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/sandwich">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked='@{viewModel.sandwich.name.equals(viewModel.menuItems["beef_sandwich"].name)}'
+                        android:onClick='@{() -> viewModel.setSandwich("beef_sandwich")}'
+                        android:text='@{@string/beef_sandwich(viewModel.menuItems["beef_sandwich"].formattedPrice)}'
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        tools:text="Sandwich 1" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked='@{viewModel.sandwich.name.equals(viewModel.menuItems["chicken_sandwich"].name)}'
+                        android:onClick='@{() -> viewModel.setSandwich("chicken_sandwich")}'
+                        android:text='@{@string/chicken_sandwich(viewModel.menuItems["chicken_sandwich"].formattedPrice)}'
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        tools:text="Sandwich 1" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked='@{viewModel.sandwich.name.equals(viewModel.menuItems["fish_sandwich"].name)}'
+                        android:onClick='@{() -> viewModel.setSandwich("fish_sandwich")}'
+                        android:text='@{@string/fish_sandwich(viewModel.menuItems["fish_sandwich"].formattedPrice)}'
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        tools:text="Sandwich 1" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/add_extras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_extras"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+
+                <CheckBox
+                    android:id="@+id/drink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick='@{() -> viewModel.addSide("drink")}'
+                    android:text='@{@string/coffee_tea_refill_cup_d(viewModel.menuItems["drink"].formattedPrice)}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    tools:text="Coffee/Tea $1.89" />
+
+
+                <CheckBox
+                    android:id="@+id/chips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick='@{() -> viewModel.addSide("chips")}'
+                    android:checked='@{viewModel.side.name.equals(viewModel.menuItems["drink"])}'
+                    android:text='@{@string/chips(viewModel.menuItems["chips"].formattedPrice)}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    tools:text="Small chips $1.49" />
+
+
+                <TextView
+                    android:id="@+id/customize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+                <CheckBox
+                    android:id="@+id/extra_lettuce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick='@{() -> viewModel.addSide("lettuce")}'
+                    android:checked='@{viewModel.side.name.equals(viewModel.menuItems["lettuce"])}'
+                    android:text='@{@string/chips(viewModel.menuItems["lettuce"].formattedPrice)}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    tools:text="Lettuce $0.60" />
+
+                <CheckBox
+                    android:id="@+id/extra_tomato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick='@{() -> viewModel.addSide("tomato")}'
+                    android:checked='@{viewModel.side.name.equals(viewModel.menuItems["tomato"])}'
+                    android:text='@{@string/chips(viewModel.menuItems["tomato"].formattedPrice)}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    tools:text="Tomato $0.60" />
+
+                <CheckBox
+                    android:id="@+id/extra_pickles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick='@{() -> viewModel.addSide("pickles")}'
+                    android:checked='@{viewModel.side.name.equals(viewModel.menuItems["pickles"])}'
+                    android:text='@{@string/chips(viewModel.menuItems["pickles"].formattedPrice)}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    tools:text="Pickle $0.60" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_margin_top"
+                android:text="@{@string/total(viewModel.subtotal)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/extras_group"
+                tools:text="Total: $6.99" />
+
+            <Button
+                android:id="@+id/cancel_order"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_margin_top"
+                android:onClick="@{() -> orderFragment.cancelOrder()}"
+                android:text="Cancel"
+                app:layout_constraintEnd_toStartOf="@id/order_summary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total" />
+
+            <Button
+                android:id="@+id/order_summary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_margin_top"
+                android:layout_marginTop="@dimen/item_margin_top"
+                android:onClick="@{() -> orderFragment.goToNextScreen()}"
+                android:text="Order"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_order"
+                app:layout_constraintTop_toBottomOf="@id/total" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
